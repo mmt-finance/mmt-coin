@@ -10,7 +10,7 @@ fun init(witness: MMT, ctx: &mut TxContext) {
     let symbol = b"MMT";
     let decimals = 9;
     let description = b"MMT Token";
-    let icon_url = url::new_unsafe_from_bytes(b"https://momentum-statics.s3.us-west-1.amazonaws.com/mmt.png");
+    let icon_url = url::new_unsafe_from_bytes(b"https://momentum-statics.s3.us-west-1.amazonaws.com/MMT.png");
 
     let (treasury_cap, deny_cap, token_metadata) = coin::create_regulated_currency_v2(
         witness,
