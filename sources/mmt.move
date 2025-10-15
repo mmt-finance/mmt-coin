@@ -1,32 +1,31 @@
 module mmt::mmt;
 
-use sui::coin;
-use sui::url;
+use std::string;
+use sui::coin_registry;
 
 public struct MMT has drop {}
 
 fun init(witness: MMT, ctx: &mut TxContext) {
-    let name = b"MMT";
-    let symbol = b"MMT";
+    let name = string::utf8(b"MMT");
+    let symbol = string::utf8(b"MMT");
     let decimals = 9;
-    let description =
-        b"MMT is the native governance token for Momentum, the operating system powering the next era of global finance. MMT empowers holders to govern the protocol through vote-escrowed staking (veMMT) for community-driven decisions within the Momentum ecosystem.";
-    let icon_url = url::new_unsafe_from_bytes(
-        b"https://momentum-statics.s3.us-west-1.amazonaws.com/MMT.png",
+    let description = string::utf8(
+        b"MMT is the governance token for Momentum, the Move ecosystem’s liquidity engine that enables veMMT holders to steer protocol governance, liquidity allocation, and cross-chain ecosystem growth.",
     );
+    let icon_url = string::utf8(b"https://momentum-statics.s3.us-west-1.amazonaws.com/MMT.png");
 
-    let (treasury_cap, deny_cap, token_metadata) = coin::create_regulated_currency_v2(
+    let (currency, treasury_cap) = coin_registry::new_currency_with_otw(
         witness,
         decimals,
         symbol,
         name,
         description,
-        option::some(icon_url),
-        true,
+        icon_url,
         ctx,
     );
 
-    transfer::public_share_object(token_metadata);
+    let metadata_cap = currency.finalize(ctx);
+
     transfer::public_transfer(treasury_cap, ctx.sender());
-    transfer::public_transfer(deny_cap, ctx.sender());
+    transfer::public_transfer(metadata_cap, ctx.sender());
 }
