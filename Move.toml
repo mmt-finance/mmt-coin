@@ -1,12 +1,12 @@
 [package]
 name = "mmt"
 edition = "2024.beta" # edition = "legacy" to use legacy (pre-2024) Move
-published-at = "0x307bcac69a2b657cd7d06b895d290cfaa728a243a4119e01a9300535943aac2"
+published-at = "0x780070d00abc2dbab4ee58e0207391aa7be0bdb19d4db4d94d9c8bc709ee4142"
 
 [dependencies]
 
 [addresses]
-mmt = "0x307bcac69a2b657cd7d06b895d290cfaa728a243a4119e01a9300535943aac2"
+mmt = "0x780070d00abc2dbab4ee58e0207391aa7be0bdb19d4db4d94d9c8bc709ee4142"
 
 [dev-dependencies]
 
