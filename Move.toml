@@ -1,12 +1,12 @@
 [package]
 name = "mmt"
 edition = "2024.beta"
-published-at = '0x35169bc93e1fddfcf3a82a9eae726d349689ed59e4b065369af8789fe59f8608'
+published-at = '0x666eb9ee40bd5bb7da0e70c92ebcb98d1759d12b2041d581632d983e2ac69d09'
 
 [dependencies]
 
 [addresses]
-mmt = "0x35169bc93e1fddfcf3a82a9eae726d349689ed59e4b065369af8789fe59f8608"
+mmt = "0x666eb9ee40bd5bb7da0e70c92ebcb98d1759d12b2041d581632d983e2ac69d09"
 
 [dev-dependencies]
 
